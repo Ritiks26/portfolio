@@ -49,8 +49,8 @@ header {
 
 .hamburger-menu {
   display: none;
-  height: 20px;
-  width: 20px;
+  height: 25px;
+  width: 25px;
   position: fixed;
   top: 3%;
   right: 4%;
