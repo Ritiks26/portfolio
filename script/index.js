@@ -37,9 +37,9 @@ projects.forEach((project) => {
       <a target="_blank" href="${project.projectLink}">
         <div class="arrow-container">
           <div class="arrow-link">
-                <img class="arrow-pic" src="/link svg.svg" alt="">
+                <img class="arrow-pic" src="link svg.svg" alt="">
 
-                <img class="arrow-pic-2" src="/link svg.svg" alt="">
+                <img class="arrow-pic-2" src="link svg.svg" alt="">
           </div>
         </div>
       </a>
@@ -64,7 +64,7 @@ clones.forEach((clone) => {
       <a target="_blank" href="${clone.projectLink}">
         <div class="arrow-container">
           <div class="arrow-link">
-            <img class="arrow-pic" src="/link svg.svg">
+            <img class="arrow-pic" src="link svg.svg">
           </div>
         </div>
       </a>
