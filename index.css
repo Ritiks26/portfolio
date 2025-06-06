@@ -60,6 +60,10 @@ header {
 }
 
 @media (max-width: 500px) {
+  .left-section p {
+    display: none;
+  }
+  
   header {
     display: none;
     flex-direction: column;
