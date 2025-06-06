@@ -156,7 +156,11 @@ const androidMenu = document.querySelector(".hamburger-menu");
 const androidHeader = document.querySelector(".androidHeaderToo");
 
 androidMenu.addEventListener("click", () => {
-  androidHeader.style.display = "flex";
+  if (androidHeader.style.display === "flex") {
+    androidHeader.style.display = "none";
+  } else {
+    androidHeader.style.display = "flex";
+  }
 });
 
 function hideAndroidMenus() {
