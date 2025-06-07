@@ -1,6 +1,6 @@
 export const projects = [
   {
-    video: "/video/steffers.com.mp4",
+    video: "steffers.com.mp4",
     projectName: "RSNB.com",
     type: "An E-COMMERCE Website",
     summaryOne:
