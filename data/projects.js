@@ -14,7 +14,7 @@ export const projects = [
     projectLink: "/website copy/index.html",
   },
   {
-    video: "/video/Task tracker.mp4",
+    video: "Task tracker.mp4",
     projectName: "TaskTracker",
     type: "Todo - List",
     summaryOne:
@@ -28,7 +28,7 @@ export const projects = [
     projectLink: "/JavaScript/practice/My JS practice/index.html",
   },
   {
-    video: "/video/goDesign.mp4",
+    video: "goDesign.mp4",
     projectName: "Go Design",
     type: "A WordPress Website",
     summaryOne:
