@@ -1,65 +1,174 @@
-export const projects = [
-  {
-    video: "steffers.com.mp4",
-    projectName: "RSNB.com",
-    type: "An E-COMMERCE Website",
-    summaryOne:
-      "Built an interactive website featuring quick add-to-cart functionality and an automated bill generator.",
-    summaryTwo:
-      "Used the MVC pattern to keep the codes organized and maintainable",
-    summaryThree:
-      "Implemented Local Storage to retain cart items and billing data across sessions.",
-    summaryFour:
-      "Used the module feature of JavaScript for better code organization and to avoid naming conflicts.",
-    projectLink: "/website copy/index.html",
-  },
-  {
-    video: "Task tracker.mp4",
-    projectName: "TaskTracker",
-    type: "Todo - List",
-    summaryOne:
-      "Developed a user-friendly to-do list application for managing daily tasks efficiently.",
-    summaryTwo:
-      " Enabled task creation with due dates and persistent storage using LocalStorage.",
-    summaryThree:
-      "Developed visual alerts to guide users when mandatory fields are empty.",
-    summaryFour:
-      "Organized code into clear functions for readability and maintainability.",
-    projectLink: "/JavaScript/practice/My JS practice/index.html",
-  },
-  {
-    video: "goDesign.mp4",
-    projectName: "Go Design",
-    type: "A WordPress Website",
-    summaryOne:
-      "Built responsive layouts using Elementor’s drag-and-drop tools.",
-    summaryTwo: "Customized templates using Elements Kit to match the brand.",
-    summaryThree:
-      "Implemented additional CSS animations to enhance the website's visual appeal.",
-    summaryFour: "The entire project has been developed on a local host.",
-  },
-];
+import { projects } from "../data/projects.js";
+import { clones } from "../data/projects.js";
 
-export const clones = [
-  {
-    video: "/video/flipkart.com.mp4",
-    site: "Flipkart",
-    content:
-      "Created a Flipkart clone using HTML and CSS, replicating the homepage layout and design of the original website. It includes a navigation bar, product listings, banners, and a styled footer. This project helped me strengthen my HTML and CSS skills by recreating a real-world e-commerce UI.",
-    projectLink: "/Flipkart-clone/flipkart.html",
-  },
-  {
-    video: "/video/YouTube.com.mp4",
-    site: "Youtube",
-    content:
-      "Made a YouTube homepage clone using HTML and CSS. It has a top bar with a logo and search box, a side menu, and video boxes with titles and channel names. This project helped me get better at using HTML and CSS to build static and well-structured website layouts.",
-    projectLink: "/youtube-clone/youtube.html",
-  },
-  {
-    video: "/video/Google.com.mp4",
-    site: "Google.com",
-    content:
-      "Created a Google Search homepage clone using HTML and CSS. It includes the Google logo, a search box, and buttons like the real site. This project helped me practice how to center elements and style a clean, simple layout using basic HTML and CSS.",
-    projectLink: "/Google-lyrics/google-search.html",
-  },
-];
+let somethingHTML = "";
+
+projects.forEach((project) => {
+  somethingHTML += `
+    <div class="project">
+      <div class="project-video">
+        <video class="hover-this"
+          src="${project.video}"
+        ></video>
+      </div>
+      <div class="project-name">
+        <h2>${project.projectName}</h2>
+        <p>${project.type}</p>
+      </div>
+
+      <h2>Project Breakdown</h2>
+
+      <div class="features-container">
+        <ul>
+          <li>
+            ${project.summaryOne}
+          </li>
+          <li>
+            ${project.summaryTwo}
+          </li>
+          <li>
+            ${project.summaryThree}
+          </li>
+          <li>
+            ${project.summaryFour}
+          </li>
+        </ul>
+      </div>
+        <div class="arrow-box">
+          <a target="_blank" href="${project.projectLink}">
+            <div class="arrow-container">
+              <div class="arrow-link">
+                <img class="arrow-pic" src="/link svg.svg" alt="">
+                <img class="arrow-pic-2" src="/link svg.svg" alt="">
+              </div>
+            </div>
+          </a>
+        </div>
+    </div>
+  `;
+});
+
+document.querySelector(".js-all-projects").innerHTML = somethingHTML;
+
+let cloneProjectsHTML = "";
+
+clones.forEach((clone) => {
+  cloneProjectsHTML += `
+    <div class="each-project">
+      <video
+        class="hover-this"
+        loop
+        src="${clone.video}"
+      ></video>
+      <h2>${clone.site}</h2>
+      <p>${clone.content}</p>
+      <div class="arrow-box">
+        <a target="_blank" href="${clone.projectLink}">
+          <div class="arrow-container">
+            <div class="arrow-link">
+              <img class="arrow-pic" src="/link svg.svg" alt="">
+              <img class="arrow-pic-2" src="/link svg.svg" alt="">
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  `;
+});
+
+document.querySelector(".js-clone-projects").innerHTML = cloneProjectsHTML;
+
+document.querySelectorAll(".hover-this").forEach((video) => {
+  video.addEventListener("mouseover", () => {
+    video.play();
+
+    video.addEventListener("mouseout", () => {
+      video.pause();
+    });
+  });
+});
+
+const projectElem = document.querySelector(".js-projects-container");
+const projectMenu = document.querySelector(".menu-js-2");
+const navBar = document.querySelector(".js-navbar");
+const developerElem = document.querySelector(".js-developer-detail");
+const contactElem = document.querySelector(".js-contact-container");
+const aboutElem = document.querySelector(".js-about-page");
+const cloneElem = document.querySelector(".js-clone-sites");
+
+projectMenu.addEventListener("click", () => {
+  developerElem.style.display = "none";
+  contactElem.style.display = "none";
+  cloneElem.style.display = "none";
+  projectElem.style.display = "block";
+  aboutElem.style.display = "none";
+
+  hideAndroidMenus();
+});
+
+const homeMenu = document.querySelector(".menu-js-1");
+
+homeMenu.addEventListener("click", () => {
+  developerElem.style.display = "block";
+  contactElem.style.display = "none";
+  projectElem.style.display = "none";
+  cloneElem.style.display = "none";
+  aboutElem.style.display = "none";
+
+  hideAndroidMenus();
+});
+
+const contactMe = document.querySelector(".js-contact");
+
+contactMe.addEventListener("click", () => {
+  developerElem.style.display = "none";
+  projectElem.style.display = "none";
+  cloneElem.style.display = "none";
+  contactElem.style.display = "block";
+  aboutElem.style.display = "none";
+
+  hideAndroidMenus();
+});
+
+const aboutMenu = document.querySelector(".menu-js-4");
+
+aboutMenu.addEventListener("click", () => {
+  developerElem.style.display = "none";
+  projectElem.style.display = "none";
+  contactElem.style.display = "none";
+  cloneElem.style.display = "none";
+
+  aboutElem.style.display = "block";
+
+  hideAndroidMenus();
+});
+
+const cloneMenu = document.querySelector(".menu-js-3");
+cloneMenu.addEventListener("click", () => {
+  developerElem.style.display = "none";
+  projectElem.style.display = "none";
+  contactElem.style.display = "none";
+  aboutElem.style.display = "none";
+
+  cloneElem.style.display = "block";
+
+  hideAndroidMenus();
+});
+
+const androidMenu = document.querySelector(".hamburger-menu");
+
+const androidHeader = document.querySelector(".androidHeaderToo");
+
+androidMenu.addEventListener("click", () => {
+  if (androidHeader.style.display === "flex") {
+    androidHeader.style.display = "none";
+  } else {
+    androidHeader.style.display = "flex";
+  }
+});
+
+function hideAndroidMenus() {
+  if (window.innerWidth <= 450) {
+    androidHeader.style.display = "none";
+  }
+}
